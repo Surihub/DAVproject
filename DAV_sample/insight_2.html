@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="eee.js"></script>
+  <link rel="stylesheet" href="eee.css">
+  <title>EEE for Sustainable Development</title>
+</head>
+<body>
+  <h1>EEE for SDGs!</h1>
+  <h2>Scatterplot</h2>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="eee.html">Home</a>
+    <a href="insight_1.html">Insight1</a>
+    <a href="insight_2.html">Insight2</a>
+    <a href="insight_3.html">Insight3</a>
+  </div>
+
+  <div class="canvas"></div>
+  
+
+
+  <!-- X축 드롭다운 -->
+<select id="x-axis-select">
+  <option value="year">Year</option>
+  <option value="eduyear">Education Year</option>
+  <option value="gdp" selected>GDP</option>
+  <option value="literacy">Literacy</option>
+  <option value="energy">Energy</option>
+  <option value="co2">CO2</option>
+  <option value="gas">Gas</option>
+  <option value="coal">Coal</option>
+  <option value="oil">Oil</option>
+</select>
+
+<!-- Y축 드롭다운 -->
+<select id="y-axis-select">
+  <option value="year">Year</option>
+  <option value="eduyear">Education Year</option>
+  <option value="gdp">GDP</option>
+  <option value="literacy">Literacy</option>
+  <option value="energy">Energy</option>
+  <option value="co2">CO2</option>
+  <option value="gas" selected>Gas</option>
+  <option value="coal">Coal</option>
+  <option value="oil">Oil</option>
+</select>
+
+<div class="canvas"></div>
+
+</body>
+</html>
