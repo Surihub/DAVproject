@@ -73,6 +73,7 @@ d3.csv("mergedata2.csv").then(data => {
     const newdata2 = defaultCountryData.filter(d => d.class === 'developing country');  
     const newdata3 = defaultCountryData.filter(d => d.class === 'Developed country'); 
     const newdata4 = filteredData.filter(d => d.GeoAreaName === Nation ||d.GeoAreaName ==='ALL');
+    const newdata5 = filteredData.filter(d => d.GeoAreaName === Nation);
 
     // 데이터에서 고유한 클래스 추출
     const uniqueClasses = [...new Set(data.map(d => d.class))];
@@ -107,6 +108,14 @@ d3.csv("mergedata2.csv").then(data => {
       .attr("fill", "none")
       .attr("stroke",  "green")
 
+    // 선 그래프 그리기
+    svg.append("path")
+      .data([newdata5])
+      .join("path")
+      .attr("d", line)
+      .attr("fill", "none")
+      .attr("stroke",  "red")
+    
     svg.selectAll("circle")
       .data(newdata4)
       .join('circle')
@@ -165,7 +174,7 @@ d3.csv("mergedata2.csv").then(data => {
     const tooltip = d3.select('.canvas').append('div')
       .attr('class', 'tooltip')
       .style('opacity', '0')
-      .style('width', '250px');
+      .style('width', '300px');
       
 
     // 마우스 오버 이벤트 처리 함수입니다.
@@ -175,8 +184,8 @@ d3.csv("mergedata2.csv").then(data => {
       .html('Year: ' + d.TimePeriod + '<br/> \
               Country Name: ' + d.GeoAreaName + '<br/> \
               Value: ' + d.MeanValue)
-      .style('left', (d3.pointer(event)[0] + 700) + 'px') // 툴팁의 위치를 설정
-      .style('top', (d3.pointer(event)[1] + 50) + 'px'); // d3.pointer(event) 이벤트가 일어난 위치 정보를 받아올 수 있음
+      .style('left', (d3.pointer(event)[0] + 500) + 'px') // 툴팁의 위치를 설정
+      .style('top', (d3.pointer(event)[1] + 70) + 'px'); // d3.pointer(event) 이벤트가 일어난 위치 정보를 받아올 수 있음
     }
 
     // 마우스 아웃 이벤트 처리 함수입니다.
