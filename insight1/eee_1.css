@@ -54,6 +54,21 @@ select {
     margin-right: auto; /* 중앙 정렬 */
 }
 
+/* 라벨 스타일 */
+label {
+    font-family: var(--main-font);
+    padding: 5px;
+    margin: 5px 0; /* 상하 여백 추가 */
+    border: None;
+    border-radius: 5px; /* 둥근 모서리 */
+    background-color: None;
+    color: var(--text-color);
+    width: 480px; /* 너비 설정 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    margin-left: auto;
+    margin-right: auto; /* 중앙 정렬 */
+}
+
 /* 드롭다운 호버 효과 */
 select:hover {
     border-color: var(--nav-link-color);
