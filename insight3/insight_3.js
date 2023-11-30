@@ -29,18 +29,6 @@ countriesData.forEach(function(country) {
     btn.onclick = function() { plotCountryData(country.label); };
     document.getElementById("gridContainer").appendChild(btn);
 });
-console.log(calculateColor(2020));
-function calculateColor(year) {
-    // 예시: year 값이 2000에서 2020 사이라고 가정
-    var maxYear = 2020; // 가장 최근 연도
-    var minYear = 2000; // 가장 오래된 연도
-
-    // 연도에 따라 0에서 255 사이의 값을 계산
-    var intensity = 255 * (1 - (year - minYear) / (maxYear - minYear));
-
-    // RGB 형식으로 색상 코드 반환
-    return "rgb(" + intensity + "," + intensity + "," + intensity + ")";
-}
 
 
 
