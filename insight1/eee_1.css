@@ -54,6 +54,15 @@ select {
     margin-right: auto; /* 중앙 정렬 */
 }
 
+/* 라벨 컨테이너 스타일 */
+.label-container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translate(0, -50%);
+}
+
 /* 라벨 스타일 */
 label {
     font-family: var(--main-font);
