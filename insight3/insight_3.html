@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="insight_3.js"></script>
+  <link rel="stylesheet" href="eee.css">
+  <title>EEE for Sustainable Development</title>
+</head>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+<body>
+  <h1>한국</h1>
+
+  <div class="sidebar">
+    <a href="eee.html">Home</a>
+      <a href="insight_1.html">Insight1</a>
+      <a href="insight_2.html">Insight2</a>
+      <a href="insight_3.html">Insight3</a>
+  </div>
+
+<!-- 라벨 컨테이너 -->
+<div class="label-container">
+  <label for="index1">Select Index 1:</label>
+  <select id="index1"></select>
+
+  <label for="index2">Select Index 2:</label>
+  <select id="index2"></select>
+</div>
+
+<!-- 그래프 컨테이너 -->
+<div class="graph-container">
+  <svg width="800" height="600"></svg>
+  <h2 id="countryName" ></h2>
+  <div id="gridContainer"></div>
+  <script src="map.js"></script>
+</div> 
+
+
+</body>
+</html>
