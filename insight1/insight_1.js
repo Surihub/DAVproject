@@ -2,11 +2,12 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
 // 데이터를 불러옵니다.
-d3.csv("mergedata2.csv").then(data => {
+d3.csv("mergedata.csv").then(data => {
 
   // 드롭다운 메뉴에 고유한 문항 추가
   const Indicators = d3.select("#Indicator");
   const uniqueIndicators = [...new Set(data.map(d => d.Indicators))];
+  const Continents = d3.select("#Continent");
   const Nations = d3.select("#nations");
  
   Indicators
@@ -35,8 +36,29 @@ d3.csv("mergedata2.csv").then(data => {
     const filteredData = data.filter(d =>
       d.Indicators.toUpperCase() === Indicator.toUpperCase()
     );
+    
+    const uniqueContinents1 = [...new Set(filteredData.map(d => d.Continent))];
 
-    const uniqueCountries = [...new Set(filteredData.map(d => d.GeoAreaName))];
+    // NaN을 필터링하여 제외
+    const uniqueContinents = uniqueContinents1.filter(continent => isNaN(continent));
+
+
+    Continents
+    .selectAll("option")
+    .data(uniqueContinents)
+    .join('option')
+    .attr("value", d => d)
+    .text(d => d);  
+
+    const Continent = Continents.node().value;  
+        
+    const filteredData2 = filteredData.filter(d =>
+      d.Continent.toUpperCase() === Continent.toUpperCase()
+    );
+
+    console.log(Continent)
+
+    const uniqueCountries = [...new Set(filteredData2.map(d => d.GeoAreaName))];
         
     Nations
     .selectAll("option")
@@ -45,16 +67,17 @@ d3.csv("mergedata2.csv").then(data => {
     .attr("value", d => d)
     .text(d => d);
 
+    
     const Nation = Nations.node().value;
 
 
     // 스케일과 선 생성기 설정
     const xScale = d3.scaleLinear()
-      .domain([d3.min(filteredData, d => d.TimePeriod), d3.max(filteredData, d => d.TimePeriod)])
+      .domain([d3.min(filteredData2, d => d.TimePeriod), d3.max(filteredData, d => d.TimePeriod)])
       .range([0, width]);
 
     const yScale = d3.scaleLinear()
-      .domain([d3.min(filteredData, d => d.MeanValue), d3.max(filteredData, d => d.MeanValue)])
+      .domain([d3.min(filteredData2, d => d.MeanValue), d3.max(filteredData, d => d.MeanValue)])
       .range([height, 0]);
     
     const canvas = d3.select(".canvas");
@@ -201,6 +224,7 @@ d3.csv("mergedata2.csv").then(data => {
   // 드롭다운 값이 변경될 때 updateVisualization 함수 호출
 
   Indicators.on('change', updateVisualization);
+  Continents.on('change', updateVisualization);
   Nations.on('change', updateVisualization);
 
 });
