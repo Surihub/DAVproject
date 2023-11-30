@@ -59,8 +59,7 @@ function updateScatterPlot(data, index1, index2) {
         .duration(500)
         .attr("cx", d => x(d[index1]))
         .attr("cy", d => y(d[index2]))
-        .attr("r", 5)
-        .attr("fill", d => calculateColor(d.year));
+        .attr("r", 5);
 
     // Exit selection
     circles.exit()
