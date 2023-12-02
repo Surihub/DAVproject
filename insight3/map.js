@@ -1,33 +1,50 @@
-function plotCountryData(countryCode) {
-    d3.csv('backdated SDG Index.csv').then(function(data) {
-        // Filter data for the selected country
-        console.log('성공!!');
-        var countryData = data.filter(function(d) {
-            return d['Country Code ISO3'] === countryCode; // Adjust the property name as per your CSV
-        });
-        updateScatterPlot(countryData, 'population', 'SDG Index Score');
-        // index1, 2 input으로 받도록 추가
-    });
-}
+// function plotCountryData(countryCode) {
+//     d3.csv('SDR final.csv').then(function(data){
+//     // d3.csv('backdated SDG Index.csv').then(function(data) {
+//         // Filter data for the selected country
+//         console.log('성공!!');
+//         var countryData = data.filter(function(d) {
+//             return d.ISO3 === countryCode; // Adjust the property name as per your CSV
+//         });
+//         updateScatterPlot(countryData, 'population', 'SDG Index Score');
+//         // index1, 2 input으로 받도록 추가
+//     });
+// }
+const tooltip = d3.select('.canvas').append('div')
+                .attr('class', 'tooltip')
+                .style('opacity', '0')
+                .style('position', 'absolute')  // 절대 위치 설정
+                .style('pointer-events', 'none');  // 툴팁은 마우스 이벤트를 무시
+
+
 
 function updateScatterPlot(data, index1, index2) {
     // Clear existing SVG content
     d3.select("svg").selectAll("*").remove();
 
     // Set up SVG dimensions
-    var svgWidth = 800, svgHeight = 600;
+    var svgWidth = 500, svgHeight = 400;
     var margin = { top: 20, right: 20, bottom: 60, left: 60 };
     var width = svgWidth - margin.left - margin.right;
     var height = svgHeight - margin.top - margin.bottom;
 
     // Create scaling functions
     var x = d3.scaleLinear()
-        .domain([d3.min(data, d => +d[index1]), d3.max(data, d => +d[index1])])
+        .domain([0, 100])
         .range([0, width]);
 
     var y = d3.scaleLinear()
-        .domain([d3.min(data, d => +d[index2]), d3.max(data, d => +d[index2])])
+        .domain([0, 100])
         .range([height, 0]);
+
+    // // Create scaling functions
+    // var x = d3.scaleLinear()
+    //     .domain([d3.min(data, d => +d[index1]), d3.max(data, d => +d[index1])])
+    //     .range([0, width]);
+
+    // var y = d3.scaleLinear()
+    //     .domain([d3.min(data, d => +d[index2]), d3.max(data, d => +d[index2])])
+    //     .range([height, 0]);
 
     // Append 'g' element to the SVG
     var g = d3.select("svg")
@@ -82,6 +99,12 @@ function updateScatterPlot(data, index1, index2) {
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text(index2);
+    
+    
+    
+
+
+
 }
 
 

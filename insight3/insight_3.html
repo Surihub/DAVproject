@@ -9,32 +9,36 @@
 </head>
     <script src="https://d3js.org/d3.v6.min.js"></script>
 <body>
-  <h1>한국</h1>
-
+  <h1>기후 악당은 누구인가?</h1>
+  <h2>기후위기에 기여도에 비해 노력을 하지 않는 나라는?</h2>
   <div class="sidebar">
     <a href="eee.html">Home</a>
-      <a href="insight_1.html">Insight1</a>
-      <a href="insight_2.html">Insight2</a>
-      <a href="insight_3.html">Insight3</a>
+      <a href="insight_1.html">불평등</a>
+      <a href="insight_2.html">지니계수와 SDG index</a>
+      <a href="insight_3.html">기후악당</a>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
 
-<!-- 라벨 컨테이너 -->
-<div class="label-container">
-  <label for="index1">Select Index 1:</label>
-  <select id="index1"></select>
+      <!-- 라벨 컨테이너 -->  
+      <div class="label-container">
+        <label for="index1">goal index(가로축)</label>
+        <select id="index1"></select>
 
-  <label for="index2">Select Index 2:</label>
-  <select id="index2"></select>
-</div>
+        <label for="index2">goal index(세로축)</label>
+        <select id="index2"></select>
+      </div>
 
-<!-- 그래프 컨테이너 -->
-<div class="graph-container">
-  <svg width="800" height="600"></svg>
-  <h2 id="countryName" ></h2>
-  <div id="gridContainer"></div>
-  <script src="map.js"></script>
-</div> 
-
+      <!-- 그래프 컨테이너 -->
+      <div class="graph-container">
+        <h2>지표의 관계</h2>
+        <svg width="400" height="300">
+        <!-- <script src="map.js"></script> -->
+        </svg>
+      </div> 
+      <!-- 버튼 컨테이너 -->
+      <div id="gridContainer">
+        <script src="map.js"></script>
+      </div>
 
 </body>
 </html>
