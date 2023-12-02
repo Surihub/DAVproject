@@ -86,24 +86,22 @@ country_info.forEach(function(country) {
     document.getElementById("gridContainer").appendChild(btn);
 });
 
-
-
-const data_year = total_data.filter(d => d.year === 2022)
-console.log(data_year);
-
-updateScatterPlot(data_year, 'goal4', 'goal13');  // Default indices for initial plot
-
 // Event listeners for dropdown changes
 d3.select('#index1').on('change', function() {
-    updatePlot(data_year);
+    updatePlot(total_data);
 });
 
 d3.select('#index2').on('change', function() {
-    updatePlot(data_year);
+    updatePlot(total_data);
 });
 
 populateDropdowns();
 
+
+
+console.log(currentYear);
+console.log("insight_3.js");
+updateScatterPlot(total_data, 'goal4', 'goal13', currentYear);  // Default indices for initial plot
 
 // year = 2022...
 function populateDropdowns() {
@@ -119,7 +117,6 @@ function populateDropdowns() {
     });
 }
 
-
 function plotCountryData(countryCode) {
 
     var countryData = total_data.filter(function(d) {
@@ -127,13 +124,14 @@ function plotCountryData(countryCode) {
     });
     var index1 = d3.select('#index1').node().value;
     var index2 = d3.select('#index2').node().value;
-    updateScatterPlot(countryData, index1, index2);
+    var selectedCountry = countryCode || null;
+    updateScatterPlot(countryData,  index1, index2, currentYear, countryCode);
 
     };
 
 function updatePlot(data) {
     var index1 = d3.select('#index1').node().value;
     var index2 = d3.select('#index2').node().value;
-    updateScatterPlot(data, index1, index2);
+    updateScatterPlot(data,  index1, index2, currentYear);
 }
 

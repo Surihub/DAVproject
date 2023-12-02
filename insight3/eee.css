@@ -131,7 +131,7 @@ svg {
     max-width: 800px;
     margin: 20px auto;
     display: block;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     overflow: visible; /* Add this to allow overflowing content to be visible */
 }
 
@@ -141,7 +141,7 @@ svg {
 /* Scatterplot Point Styles */
 .scatterplot-point {
     fill: var(--accent-color); /* Default color for points */
-    transition: fill 0.3s, r 0.3s; /* Smooth transition for color and radius */
+    /* transition: fill 0.1s, r 0.1s; Smooth transition for color and radius */
 }
 
 /* Sidebar styling */
@@ -180,11 +180,11 @@ color: #ccc;
 /* Style for the highlighted circles (mouseover event) */
 .dot:hover {
     fill: #abfcb3; /* Bright color on hover */
-    stroke:#3A4D39;
-    stroke-width: 2px;
+    stroke:#abfcb3;
+    stroke-width: 4px;
 }
 
-전체 레이아웃을 위한 컨테이너
+/* 전체 레이아웃을 위한 컨테이너 */
 .main-container{
     padding: 20px;
     text-align: center; /* 가운데 정렬 */
@@ -261,3 +261,11 @@ label {
     color: rgb(228, 175, 28); /* 글씨 색상을 파란색으로 변경 */
 }
 
+/* 여기에 필요한 스타일을 추가하세요. 예를 들어: */
+#slider {
+    margin: 20px;
+}
+
+#yearValue {
+    top: 650px;
+}

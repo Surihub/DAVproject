@@ -17,8 +17,6 @@
       <a href="insight_2.html">지니계수와 SDG index</a>
       <a href="insight_3.html">기후악당</a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
-
       <!-- 라벨 컨테이너 -->  
       <div class="label-container">
         <label for="index1">goal index(가로축)</label>
@@ -28,17 +26,26 @@
         <select id="index2"></select>
       </div>
 
+
+
+
       <!-- 그래프 컨테이너 -->
       <div class="graph-container">
         <h2>지표의 관계</h2>
         <svg width="400" height="300">
         <!-- <script src="map.js"></script> -->
         </svg>
-      </div> 
+      </div>
+
       <!-- 버튼 컨테이너 -->
       <div id="gridContainer">
         <script src="map.js"></script>
       </div>
-
-</body>
+    <!-- 슬라이더 관련 스크립트 파일 추가 -->
+      <!-- 연도 슬라이더 추가 -->
+      <p id="yearValue">연도: 2020</p>
+      <div id="yearSlider"></div>
+      <script src="https://unpkg.com/d3-simple-slider"></script>
+      <script src="slider.js"></script>
+  </body>
 </html>
