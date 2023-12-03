@@ -2,7 +2,7 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
 // 데이터를 불러옵니다.
-d3.csv("mergedata.csv").then(data => {
+d3.csv("mergedata3.csv").then(data => {
 
   // 드롭다운 메뉴에 고유한 문항 추가
   const Indicators = d3.select("#Indicator");
@@ -31,11 +31,15 @@ d3.csv("mergedata.csv").then(data => {
     
     const Indicator = Indicators.node().value;  
 
+    
+
       
     // 선택한 문항에 따라 데이터 필터링
     const filteredData = data.filter(d =>
       d.Indicators.toUpperCase() === Indicator.toUpperCase()
     );
+
+    
     
     const uniqueContinents1 = [...new Set(filteredData.map(d => d.Continent))];
 
@@ -56,7 +60,7 @@ d3.csv("mergedata.csv").then(data => {
       d.Continent.toUpperCase() === Continent.toUpperCase()
     );
 
-    console.log(Continent)
+    
 
     const uniqueCountries = [...new Set(filteredData2.map(d => d.GeoAreaName))];
         
@@ -77,7 +81,7 @@ d3.csv("mergedata.csv").then(data => {
       .range([0, width]);
 
     const yScale = d3.scaleLinear()
-      .domain([d3.min(filteredData2, d => d.MeanValue), d3.max(filteredData, d => d.MeanValue)])
+      .domain([0, 100])
       .range([height, 0]);
     
     const canvas = d3.select(".canvas");
@@ -98,6 +102,7 @@ d3.csv("mergedata.csv").then(data => {
     const newdata4 = filteredData.filter(d => d.GeoAreaName === Nation ||d.GeoAreaName ==='ALL');
     const newdata5 = filteredData.filter(d => d.GeoAreaName === Nation);
 
+    
     // 데이터에서 고유한 클래스 추출
     const uniqueClasses = [...new Set(data.map(d => d.class))];
 
@@ -106,7 +111,6 @@ d3.csv("mergedata.csv").then(data => {
       .domain(uniqueClasses)
       .range(d3.schemeCategory10);  
 
-  
     // 선 그래프 그리기
     svg.append("path")
       .data([newdata1])
@@ -114,6 +118,7 @@ d3.csv("mergedata.csv").then(data => {
       .attr("d", line)
       .attr("fill", "none")
       .attr("stroke",  "blue")
+
 
     // 선 그래프 그리기
     svg.append("path")
@@ -138,6 +143,7 @@ d3.csv("mergedata.csv").then(data => {
       .attr("d", line)
       .attr("fill", "none")
       .attr("stroke",  "red")
+      .attr("stroke-width", 2.5);
     
     svg.selectAll("circle")
       .data(newdata4)
@@ -148,6 +154,18 @@ d3.csv("mergedata.csv").then(data => {
       .attr('fill', d => colorScale(d.class))
       .on('mouseover', mouseover) // 마우스 오버 이벤트 처리 함수를 연결합니다.
       .on('mouseout', mouseout);   // 마우스 아웃 이벤트 처리 함수를 연결합니다.
+
+    // // 새로운 데이터를 추가로 그리기
+    // svg.selectAll("circle.newData")
+    //   .data(filteredData)
+    //   .join('circle')
+    //   .attr('class', 'newData') // 새로운 데이터를 식별할 클래스 추가
+    //   .attr('cx', d => xScale(d.TimePeriod))
+    //   .attr('cy', d => yScale(d.MeanValue))
+    //   .attr('r', d => 6)
+    //   .attr('fill', d => colorScale(d.class))
+    //   .attr('opacity', 0.1)
+
     
     // x 축과 y 축을 생성합니다.
     const xAxis = d3.axisBottom(xScale);
@@ -197,7 +215,7 @@ d3.csv("mergedata.csv").then(data => {
     const tooltip = d3.select('.canvas').append('div')
       .attr('class', 'tooltip')
       .style('opacity', '0')
-      .style('width', '300px');
+      .style('width', '200px');
       
 
     // 마우스 오버 이벤트 처리 함수입니다.
@@ -205,8 +223,8 @@ d3.csv("mergedata.csv").then(data => {
     tooltip
       .style('opacity', '1')
       .html('Year: ' + d.TimePeriod + '<br/> \
-              Country Name: ' + d.GeoAreaName + '<br/> \
-              Value: ' + d.MeanValue)
+              Value: ' + d.MeanValue + '<br/> \
+              Type: ' + d.type)
       .style('left', (d3.pointer(event)[0] + 500) + 'px') // 툴팁의 위치를 설정
       .style('top', (d3.pointer(event)[1] + 70) + 'px'); // d3.pointer(event) 이벤트가 일어난 위치 정보를 받아올 수 있음
     }
