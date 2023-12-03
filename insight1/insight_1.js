@@ -2,7 +2,7 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
 // 데이터를 불러옵니다.
-d3.csv("mergedata3.csv").then(data => {
+d3.csv("mergedata_fin.csv").then(data => {
 
   // 드롭다운 메뉴에 고유한 문항 추가
   const Indicators = d3.select("#Indicator");
