@@ -1,0 +1,21 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.step {
+    padding: 50px 100px;
+    border-bottom: 1px solid #ddd;
+}
+
+.story {
+    float: left;
+    width: 50%;
+}
+
+#chart1, #chart2, #chart3 {
+    float: right;
+    width: 50%;
+    height: 400px;
+}

@@ -1,0 +1,15 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Country Name"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[...]]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,135 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Song+Myung&display=swap');
+
+/* Root Variables */
+:root {
+    --main-font: 'Noto Sans KR', sans-serif;
+    --secondary-font: 'Song Myung', serif;
+    --accent-color: #4F6F52; /* Green color for sustainability */
+    --background-color: #f5f5f5; /* Light gray background */
+    --text-color: #333; /* Dark gray text for readability */
+    --nav-link-color: #3A4D39; /* Blue color for navigation links */
+    --header-background: #f5f5f5; /* Dark header background */
+    --footer-background: #424242; /* Dark footer background */
+}
+
+/* Global Styles */
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+ 
+/* Header & Titles */
+h1, h2 {
+    color: var(--accent-color);
+    text-align: center; /* Center aligned */
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add top and bottom margin */
+}
+
+.legend {
+    font-size: 12px;
+}
+
+.year-title {
+    font-size: 20px;
+}
+
+.x-axis-label{
+    font-size: 15px;
+}
+.y-axis-label{
+    font-size: 15px;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 200px; /* Width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: var(--nav-link-color); /* Sidebar background color */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+  
+/* Sidebar links */
+.sidebar a {
+    padding: 20px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #f1f1f1;
+    display: block;
+}
+  
+/* Sidebar links hover effect */
+.sidebar a:hover {
+    color: #ccc;
+}
+
+/* Canvas Style */
+.canvas {
+    padding: 30px;
+    text-align: center; /* Center align */
+    background-color: var(--background-color);
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Box shadow effect */
+    margin: 20px; /* Add margin */
+    max-width: 600px; /* Maximum width */
+    margin-left: auto;
+    margin-right: auto; /* Centering the canvas */
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: absolute;
+    width: 180px;
+    height: 90px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.7em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tooltipLine {
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.7em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* SVG Styles */
+svg {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    overflow: visible; /* Allow overflowing content to be visible */
+}
+
+/* Time Slider Style */
+#time-slider {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+
+}
+
+/* Adjusting for smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 150px; /* Adjust sidebar width for smaller screens */
+    }
+}
