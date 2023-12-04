@@ -191,25 +191,74 @@ color: #ccc;
     stroke-width: 4px;
 }
 
-/* 전체 레이아웃을 위한 컨테이너 */
-.main-container{
-    padding: 20px;
-    text-align: center; /* 가운데 정렬 */
-    background-color: var(--background-color);
-    border-radius: 10px; /* 둥근 모서리 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 박스 그림자 효과 */
-    margin: 20px; /* 여백 추가 */
-    justify-content: space-between; /* 요소들을 양쪽 끝으로 정렬 */
+
+/* 라벨 스타일 */
+label {
+    font-family: var(--main-font);
+    padding: 5px;
+    margin: 5px 0; /* 상하 여백 추가 */
+    border: None;
+    border-radius: 5px; /* 둥근 모서리 */
+    background-color: None;
+    color: var(--text-color);
+    width: 200px; /* 너비 설정 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    margin-left: auto;
+    margin-right: auto; /* 중앙 정렬 */
 }
 
-/* 그래프 컨테이너 스타일 */
-.graph-container {
-    text-align: center;
-    position: absolute;
-    top: 250px;
-    left: 50px;
-    /* width :60%; */
+#yearValue {
+    top: 650px;
+    font-size: 20px;
 }
+
+#yearSlider {
+    width: 500px; /* 슬라이더의 폭을 설정 */
+    height: 100px; /* 슬라이더의 높이를 설정 */
+    margin: 20px auto; /* 슬라이더를 가운데 정렬하고 상하 여백을 추가 */
+    position: relative; /* 상대적 위치 설정 */
+}
+
+#yearSlider svg {
+    width: 100%; /* SVG의 폭을 div 컨테이너에 맞춤 */
+    height: auto; /* SVG의 높이를 자동으로 조정 */
+    position: absolute; /* SVG를 절대적 위치로 설정 */
+    top: 0; /* SVG를 상단에 위치시킴 */
+    left: 0; /* SVG를 왼쪽에 위치시킴 */
+}
+
+
+#gridContainer button {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1; /* Makes the buttons square */
+    border: none; /* Remove button borders */
+    padding: 0; /* Remove padding inside buttons */
+    margin: 0; /* Remove margins */
+}
+#gridContainer button:hover {
+    font-size: 100%; /* 글씨 크기를 100%로 증가 */
+    font-weight: bold;
+    color: rgb(228, 175, 28); /* 글씨 색상을 파란색으로 변경 */
+}
+
+/* 여기에 필요한 스타일을 추가하세요. 예를 들어: */
+
+
+
+#graph-name {
+    font-size: 20px;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+
+
+
+
+
+
+ /* 추가 */
 
 /* 라벨 컨테이너 스타일 */
 .label-container {
@@ -235,44 +284,27 @@ color: #ccc;
     /* width: 40%; 컨테이너의 전체 너비 */
 }
 
-
-/* 라벨 스타일 */
-label {
-    font-family: var(--main-font);
-    padding: 5px;
-    margin: 5px 0; /* 상하 여백 추가 */
-    border: None;
-    border-radius: 5px; /* 둥근 모서리 */
-    background-color: None;
-    color: var(--text-color);
-    width: 200px; /* 너비 설정 */
-    display: block; /* 블록 레벨 요소로 변경 */
-    margin-left: auto;
-    margin-right: auto; /* 중앙 정렬 */
+/* 그래프 컨테이너 */
+.graph-container {
+    flex: 0.5; /* 유연한 크기 조정 */
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 
-
-
-#gridContainer button {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1; /* Makes the buttons square */
-    border: none; /* Remove button borders */
-    padding: 0; /* Remove padding inside buttons */
-    margin: 0; /* Remove margins */
-}
-#gridContainer button:hover {
-    font-size: 120%; /* 글씨 크기를 100%로 증가 */
-    font-weight: bold;
-    color: rgb(228, 175, 28); /* 글씨 색상을 파란색으로 변경 */
-}
-
-/* 여기에 필요한 스타일을 추가하세요. 예를 들어: */
-#slider {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
 }
 
-#yearValue {
-    top: 650px;
+/* 컨텐츠 컨테이너 (그래프 및 그리드) */
+.content-container {
+    display: flex;
+    justify-content: space-between;
 }

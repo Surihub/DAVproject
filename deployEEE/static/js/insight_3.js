@@ -1,3 +1,5 @@
+console.log("insight_3.js loaded")
+
 // D3.js를 사용하기 위해 라이브러리를 가져옵니다.
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -43,7 +45,6 @@ var regionColors = {
     // 필요에 따라 더 추가할 수 있습니다.
 };
 
-
 // 지표 데이터 새로 불러오기
 const country_info = await d3.csv("/static/data/country_info.csv", function(d) {
     return {
@@ -57,9 +58,9 @@ const country_info = await d3.csv("/static/data/country_info.csv", function(d) {
 });
 
 country_info.forEach(function(country) {
-    var btn = document.createElement("button");
+    const btn = document.createElement("button");
     btn.innerHTML = country.ISO2;
-    var regionColor = regionColors[country.regions];
+    const regionColor = regionColors[country.regions];
     btn.style.backgroundColor = regionColor || 'gray';
 
     btn.style.gridRowStart = country.nrow;
@@ -67,7 +68,7 @@ country_info.forEach(function(country) {
     btn.onclick = function() { plotCountryData(country.ISO3); };
 
     // 툴팁 요소 생성 및 초기 스타일 설정
-    var tooltip = document.createElement("span");
+    const tooltip = document.createElement("span");
     tooltip.className = "tooltip";
     tooltip.style.display = "none"; // 기본적으로 툴팁 숨김
     tooltip.innerHTML = "Country: " + country['country'] + "<br>Region: " + country.regions;
@@ -101,7 +102,8 @@ populateDropdowns();
 
 console.log(currentYear);
 console.log("insight_3.js");
-updateScatterPlot(total_data, 'goal4', 'goal13', currentYear);  // Default indices for initial plot
+updatePlot(total_data);
+// updateScatterPlot(total_data, 'goal4', 'goal13', currentYear);  // Default indices for initial plot
 
 // year = 2022...
 function populateDropdowns() {
@@ -118,18 +120,14 @@ function populateDropdowns() {
 }
 
 function plotCountryData(countryCode) {
-
-    var countryData = total_data.filter(function(d) {
-        return d['ISO3'] === countryCode;
-    });
     var index1 = d3.select('#index1').node().value;
     var index2 = d3.select('#index2').node().value;
-    var selectedCountry = countryCode || null;
-    updateScatterPlot(countryData,  index1, index2, currentYear, countryCode);
-
-    };
+    console.log(currentYear);
+    updateScatterPlot(total_data, index1, index2, currentYear, countryCode);
+};
 
 function updatePlot(data) {
+    
     var index1 = d3.select('#index1').node().value;
     var index2 = d3.select('#index2').node().value;
     updateScatterPlot(data,  index1, index2, currentYear);

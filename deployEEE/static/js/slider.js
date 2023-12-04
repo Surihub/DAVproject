@@ -1,3 +1,4 @@
+console.log("slider.js loaded");
 
 var currentYear = 2022;
 function updatePlot(data) {
@@ -25,8 +26,6 @@ const total_data = d3.csv("/static/data/SDR.csv", function(d) {
 
     };
 }).then(function(total_data) {
-    console.log(Array.isArray(total_data)); // true 출력
-    console.log(currentYear);
     document.addEventListener('DOMContentLoaded', function() {
         var currentYear = 2010; // 초기 연도 설정
         console.log(currentYear);
@@ -41,7 +40,7 @@ const total_data = d3.csv("/static/data/SDR.csv", function(d) {
             .on('onchange', val => {
                 currentYear = val;
                 d3.select('#yearValue').text("연도: " + val);
-                console.log("hssssssssssssssi!")
+                console.log("현재 연도!")
                 console.log(currentYear);
                 console.log("slider.js");
                 var index1 = d3.select('#index1').node().value;
@@ -51,11 +50,16 @@ const total_data = d3.csv("/static/data/SDR.csv", function(d) {
             
         d3.select('#yearSlider')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 400)
             .attr('height', 100)
             .append('g')
-            .attr('transform', 'translate(-300,500)')
             .call(slider);
         updatePlot(total_data);
     });
 });
+
+
+
+
+
+
