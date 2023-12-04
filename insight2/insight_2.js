@@ -97,6 +97,7 @@ function createSlider() {
     sliderElement.noUiSlider.on('update', function (values, handle) {
         currentYear = Number(values[handle]);
         updateChart(currentYear);
+        updateSmallGraph(currentYear); // Update the small graph
     });
 }
 
@@ -179,29 +180,17 @@ function updateChart(currentYear) {
     svg.selectAll("line").remove();
     svg.selectAll(".year-title").remove();
     svg.selectAll(".slope-text").remove();
-
-    const year_text = svg.append('text')
+    // 차트 제목 (year - 연도) 추가
+    svg.append('text')
         .attr('class', 'year-title')  // CSS 클래스 추가 (스타일링 용)
         .attr('x', width / 2)  // 가로 가운데 정렬
         .attr('y', height - 480)  // X 축 아래에 위치
         .attr('text-anchor', 'middle')  // 텍스트 가운데 정렬
         .text('year - '+currentYear);  // X 축 이름 텍스트
 
-
+    // 데이터 필터링 특정 연도만!
     const filteredData = total_data.filter(d => d.year==currentYear)
     const filteredData2 = regressionData[currentYear]
-
-    const circles = svg.selectAll("circle")
-    .data(filteredData)
-    .join('circle')
-        .attr('cx', d => x(d.giniIndex))
-        .attr('cy', d => y(d.sdgIndexScore))
-        .attr('r', d=> (Math.log(d.population)-6)*0.6-1)
-        .attr('fill', d => colorScale(d.class))
-        .on('mouseover', mouseover)
-        .on('mouseout', mouseout);
-    
-    console.log(regressionData)
 
     // 회귀선 데이터를 배열로 변환
     let regressionLinesData = Object.entries(filteredData2).map(([grouped, {slope, intercept}]) => {
@@ -211,9 +200,53 @@ function updateChart(currentYear) {
             intercept: intercept
         };
     });
-    let isTooltipFixed = false;
-    let selectedLine = null; 
 
+    // 각종 필요한 변수들
+    let isTooltipFixed = false;
+    let isTooltipLineFixed = false;
+    let selectedLine = null; 
+    let selectedCircle = null;
+    let selectedCircle_name = null;
+
+    // 산점도 추가
+    const circles = svg.selectAll("circle") 
+    .data(filteredData)
+    .join('circle')
+        .attr('cx', d => x(d.giniIndex))
+        .attr('cy', d => y(d.sdgIndexScore))
+        .attr('r', d=> (Math.log(d.population)-6)*0.6-1)
+        .attr('fill', d => colorScale(d.class))
+        .on('click', (event) => clickCircle(event, d))
+        .on('mouseover', mouseover)
+        .on('mouseout', mouseout)
+        .on('click', function(event, d) {
+                        
+            if (selectedCircle) {
+                // 기존에 선택된 원이 있으면 크기를 원래대로 복원
+                selectedCircle.attr('r', d => calculatedRadius(d));
+                selectedCircle.attr('fill', d => colorScale(d.class));
+                selectedCircle_name = selectedCircle._groups[0][0].__data__.country;
+            } else{
+                selectedCircle_name = "no exist"; 
+            }
+
+            const currentCircle = d3.select(event.currentTarget);
+            const currentCircle_name = currentCircle._groups[0][0].__data__.country;
+            
+            if (selectedCircle_name !== currentCircle_name){
+                // 새로운 원을 클릭하면 크기를 증가시키고 빨간색으로 표시
+                currentCircle.attr('r', d => calculatedRadius(d)*2);
+                currentCircle.attr('fill', 'red')
+                selectedCircle = currentCircle;
+                showTooltip(event, d);
+                isTooltipFixed = true;
+            } else {
+                // 같은 원을 다시 클릭하면 선택 해제
+                selectedCircle = null;
+                hideTooltip();
+                isTooltipFixed = false;
+            }
+        });
 
     // 회귀선 추가 (각 소득 수준 그룹별로)
     grouped.forEach(income_group => {
@@ -243,39 +276,66 @@ function updateChart(currentYear) {
                 // 새로운 선을 클릭하면 두께를 두껍게 설정
                 line.attr('stroke-width', 6);
                 selectedLine = line;
-                showTooltip(event, groupData); // 툴팁 표시
-                isTooltipFixed = true;
+                showTooltipLine(event, groupData); // 툴팁 표시
+                isTooltipLineFixed = true;
             } else {
                 // 같은 선을 다시 클릭하면 선택 해제
                 selectedLine = null;
-                hideTooltip();
-                isTooltipFixed = false;
+                hideTooltipLine();
+                isTooltipLineFixed = false;
             }})
 
-            const canvasRect = svg.node().getBoundingClientRect();
-            const xPosition = canvasRect.left + x(x.domain()[1]);
-            const yPosition = canvasRect.top + y(groupData.slope * x.domain()[1] + groupData.intercept);
+            const canvasRect_text = svg.node().getBoundingClientRect();
+            const xPosition_text = canvasRect_text.left + x(x.domain()[1]);
+            const yPosition_text = canvasRect_text.top + y(groupData.slope * x.domain()[1] + groupData.intercept);
         
-
             //기울기 표시
-            const slope_text = svg.append('text')
+            //const slope_text = 
+            svg.append('text')
                 .attr('class', 'slope-text')  // CSS 클래스 추가 (스타일링 용)
-                .attr('x', xPosition-360)  // 가로 가운데 정렬
-                .attr('y', yPosition-240)  // X 축 아래에 위치
+                .attr('x',  height+100)  // 가로 가운데 정렬
+                .attr('y', yPosition_text - width/2 +65)  // X 축 아래에 위치
                 .attr('stroke', colorScale(income_group))
                 .attr('text-anchor', 'middle')  // 텍스트 가운데 정렬
                 .text(groupData.slope);  // X 축 이름 텍스트
+            console.log(xPosition_text)
 
     });
 
+    // 원의 크기를 계산하는 함수
+    function calculatedRadius(d) {
+        return (Math.log(d.population) - 6) * 0.6 - 1;
+    }
 
-
-
-
-
-
-    // 산점도 마우스오버
+    // 1. 산점도 마우스오버
     function mouseover(event, d) {
+        if (!isTooltipFixed){
+            showTooltip(event, d);
+        }
+    }
+
+    // 2. 산점도 마우스아웃
+    function mouseout(event) {
+        if (!isTooltipFixed){
+            hideTooltip();
+        }
+    }
+
+    // 3. 산점도 클릭 이벤트 핸들러
+    function clickCircle(event, d) {
+        // 중단: 이벤트 버블링 방지
+        event.stopPropagation();
+        if (!isTooltipFixed) {
+            showTooltip(event, d); // 툴팁 표시 및 고정
+            isTooltipFixed = true; // 툴팁 고정 설정
+        } else {
+            hideTooltip(); // 툴팁 숨김 및 고정 해제
+            isTooltipFixed = false; // 툴팁 고정 해제
+        }
+    }
+
+    // 4. 산점도 툴팁을 표시하는 함수
+    function showTooltip(event, d) {
         const tooltipWidth = tooltip.node().offsetWidth;
         const tooltipHeight = tooltip.node().offsetHeight;
         const xPosition = d3.pointer(event)[0] + canvas.node().getBoundingClientRect().left;  // 캔버스의 왼쪽 위치 추가
@@ -290,41 +350,45 @@ function updateChart(currentYear) {
                     Population: ' + (d.population/1000000).toFixed(1)+'m')
             .style('left', (xPosition - tooltipWidth / 2 + 130) + 'px')  // 툴팁의 가로 중앙 정렬
             .style('top', (yPosition - tooltipHeight +30) + 'px');  // 마우스 위로 조금 올림
-        }
-    // 산점도 마우스아웃
-    function mouseout(event) {
-    tooltip
-        .style('opacity', '0')
-        .style('left', '0px')
-        .style('top', '0px')
     }
 
-    // 회귀선 마우스오버
+    // 5. 산점도 툴팁을 숨기는 함수
+    function hideTooltip() {
+        tooltip
+            .style('opacity', '0')
+            .style('left', '0px')
+            .style('top', '0px');
+    }
+
+
+    // 1. 회귀선 마우스오버
     function mouseoverLine(event, groupData) {
-        if (!isTooltipFixed) { // 툴팁이 고정되지 않은 경우에만 표시
-            showTooltip(event, groupData);
+        if (!isTooltipLineFixed) { // 툴팁이 고정되지 않은 경우에만 표시
+            showTooltipLine(event, groupData);
         }
     }
-    // 회귀선 마우스아웃
+    // 2. 회귀선 마우스아웃
     function mouseoutLine(event) {
-        if (!isTooltipFixed) { // 툴팁이 고정되지 않은 경우에만 숨김
-            hideTooltip();
+        if (!isTooltipLineFixed) { // 툴팁이 고정되지 않은 경우에만 숨김
+            hideTooltipLine();
         }
     }
 
-    // 회귀선 클릭 이벤트 핸들러
+    // 3. 회귀선 클릭 이벤트 핸들러
     function clickLine(event, groupData) {
-        if (!isTooltipFixed) {
-            showTooltip(event, groupData); // 툴팁 표시 및 고정
-            isTooltipFixed = true; // 툴팁 고정 설정
+        // 중단: 이벤트 버블링 방지
+        event.stopPropagation();
+        if (!isTooltipLineFixed) {
+            showTooltipLine(event, groupData); // 툴팁 표시 및 고정
+            isTooltipLineFixed = true; // 툴팁 고정 설정
         } else {
-            hideTooltip(); // 툴팁 숨김 및 고정 해제
-            isTooltipFixed = false; // 툴팁 고정 해제
+            hideTooltipLine(); // 툴팁 숨김 및 고정 해제
+            isTooltipLineFixed = false; // 툴팁 고정 해제
         }
     }
 
-    // 회귀선 툴팁을 표시하는 함수
-    function showTooltip(event, groupData) {
+    // 4. 회귀선 툴팁을 표시하는 함수
+    function showTooltipLine(event, groupData) {
         const canvasRect = svg.node().getBoundingClientRect();
         const xPosition = canvasRect.left + x(x.domain()[1]);
         const yPosition = canvasRect.top + y(groupData.slope * x.domain()[1] + groupData.intercept);
@@ -338,20 +402,149 @@ function updateChart(currentYear) {
             .style('top', yPosition + 'px');
     }
 
-    // 회귀선 툴팁을 숨기는 함수
-    function hideTooltip() {
+    // 5. 회귀선 툴팁을 숨기는 함수
+    function hideTooltipLine() {
         tooltipLine
             .style('opacity', '0')
             .style('left', '0px')
             .style('top', '0px');
     }
-
-
 }
 
 
+// 1. Create a New SVG for the Small Graph
+const smallGraphWidth = 150;
+const smallGraphHeight = 150;
+const smallSvg = canvas.append('svg')
+    .attr('width', smallGraphWidth)
+    .attr('height', smallGraphHeight)
+    .attr('transform', `translate(${width - smallGraphWidth + 230},${ -height-50})`); // Adjust position as needed
+
+let years_all = [];
+for (let year = 2000; year <= 2022; year+=1) {
+    years_all.push(year);
+}
+
+// 2. 새로운 데이터 구조화
+let smallGraphData = [];
+years_all.forEach(year => {
+    Object.entries(regressionData[year]).forEach(([type, data]) => {
+        smallGraphData.push({
+            year: year,
+            type: type,
+            slope: -data.slope
+        });
+    });
+});
+
+// 3. Scale and Axes for Small Graph
+const smallX = d3.scaleLinear()
+    .domain(d3.extent(smallGraphData, d => d.year))
+    .range([0, smallGraphWidth]);
+
+const smallY = d3.scaleLinear()
+    .domain(d3.extent(smallGraphData, d => d.slope))
+    .range([smallGraphHeight, 0]);
+
+const smallXAxis = d3.axisBottom(smallX).ticks(5).tickFormat(d3.format(""));
+const smallYAxis = d3.axisLeft(smallY).ticks(5);
+
+smallSvg.append('g')
+    .attr('transform', `translate(0,${smallGraphHeight})`)
+    .call(smallXAxis);
+
+smallSvg.append('g')
+    .call(smallYAxis);
+
+smallSvg.append('text')
+    .attr('class', 'x-axis-label')  // CSS 클래스 추가 (스타일링 용)
+    .attr('x', smallGraphWidth / 2)  // 가로 가운데 정렬
+    .attr('y', smallGraphHeight + 40)  // X 축 아래에 위치
+    .attr('text-anchor', 'middle')  // 텍스트 가운데 정렬
+    .text('Year');  // X 축 이름 텍스트
+ 
+smallSvg.append('text')
+    .attr('class', 'y-axis-label')  // CSS 클래스 추가 (스타일링 용)
+    .attr('x', -smallGraphHeight / 2)  // 세로 가운데 정렬 및 90도 회전
+    .attr('y', -30)  // Y 축 왼쪽에 위치
+    .attr('text-anchor', 'middle')  // 텍스트 가운데 정렬
+    .attr('transform', 'rotate(-90)')  // 90도 회전
+    .text('abs(slope)');  // Y 축 이름 텍스트
+
+smallSvg.append('text')
+    .attr('class', 'x-axis-label')
+    .attr('x', smallGraphWidth / 2)
+    .attr('y', smallGraphHeight - 200)
+    .attr('text-anchor', 'middle')
+    .selectAll("tspan")
+    .data(["Gini index가 SDG score에", "미치는 부정적 영향의 정도"])
+    .enter()
+    .append("tspan")
+    .attr("x", smallGraphWidth / 2)
+    .attr("dy", (d, i) => i * 20) // 두 번째 줄에 대해 y 위치 조정
+    .text(d => d);
 
 
+// 4. Plotting the Small Graph
+smallSvg.selectAll(".small-dot")
+    .data(smallGraphData)
+    .enter().append("circle")
+    .attr("class", "small-dot")
+    .attr("cx", d => smallX(d.year))
+    .attr("cy", d => smallY(d.slope))
+    .attr("r", 2)
+    .style("fill", d => colorScale(d.type));
+
+
+// 1. Line Generator 함수 생성
+const lineGenerator = d3.line()
+    .x(d => smallX(d.year))
+    .y(d => smallY(d.slope));
+
+// 2. 각 종류별로 데이터 그룹화
+const groupedData = {};
+smallGraphData.forEach(d => {
+    if (!groupedData[d.type]) {
+        groupedData[d.type] = [];
+    }
+    groupedData[d.type].push(d);
+});
+
+// 3. 각 그룹에 대한 선 그리기
+Object.keys(groupedData).forEach(type => {
+    smallSvg.append("path")
+        .datum(groupedData[type])
+        .attr("fill", "none")
+        .attr("stroke", colorScale(type))
+        .attr("stroke-width", 1)
+        .attr("d", lineGenerator);
+});
+console.log(colorScale)
+
+
+// 5. Function to Update the Small Graph
+function updateSmallGraph(selectedYear) {
+    // Highlight the selected year
+    smallSvg.selectAll(".small-dot")
+        .style("fill", d => d.year === selectedYear ? "red" : colorScale(d.type));
+
+    // Add/Update vertical line
+    smallSvg.selectAll(".year-line").remove();
+    smallSvg.append("line")
+        .attr("class", "year-line")
+        .attr("x1", smallX(selectedYear))
+        .attr("x2", smallX(selectedYear))
+        .attr("y1", 0)
+        .attr("y2", smallGraphHeight)
+        .style("stroke", "blue")
+        .attr("stroke-width", 1)
+        .style("stroke-dasharray", ("5, 5"));
+}
 
 createSlider();
 updateChart(currentYear);
+
+
+
+
+
