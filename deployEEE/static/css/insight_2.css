@@ -80,7 +80,7 @@ h1, h2 {
     text-align: center; /* Center align */
     background-color: var(--background-color);
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Box shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0); /* Box shadow effect */
     margin: 20px; /* Add margin */
     max-width: 600px; /* Maximum width */
     margin-left: auto;
