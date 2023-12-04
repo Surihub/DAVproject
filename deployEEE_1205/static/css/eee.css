@@ -1,0 +1,310 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Noto+Sans+KR:wght@500&family=Song+Myung&display=swap');
+
+/* Root Variables */
+:root {
+    --main-font: 'Song Myung', sans-serif;
+    --secondary-font: 'Noto Sans KR', serif;
+    --accent-color: #4F6F52; /* Green color for sustainability */
+    --background-color: #f5f5f5; /* Light gray background */
+    --text-color: #333; /* Dark gray text for readability */
+    --nav-link-color: #3A4D39; /* Blue color for navigation links */
+    --header-background: #f5f5f5; /* Dark header background */
+    --footer-background: #424242; /* Dark footer background */
+}
+
+/* Global Styles */
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 80px;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 제목 스타일 */
+h1{
+    /* font-family: 'Black Han Sans', sans-serif; */
+    color: var(--accent-color);
+    text-align: center; /* 가운데 정렬 */
+    margin-top: 20px;
+    margin-bottom: 20px; /* 상하 여백 추가 */
+}
+/* 제목 스타일 */
+h2 {
+    /* font-family: 'Black Han Sans', sans-serif; */
+    color: var(--accent-color);
+    text-align: center; /* 가운데 정렬 */
+    margin-top: 20px;
+    margin-bottom: 20px; /* 상하 여백 추가 */
+}
+
+/* 드롭다운 스타일 */
+select {
+    font-family: var(--main-font);
+    padding: 10px;
+    margin: 10px 0; /* 상하 여백 추가 */
+    border: 1px solid var(--accent-color);
+    border-radius: 5px; /* 둥근 모서리 */
+    background-color: white;
+    color: var(--text-color);
+    cursor: pointer; /* 커서 스타일 변경 */
+    width: 300px; /* 너비 설정 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    margin-left: auto;
+    margin-right: auto; /* 중앙 정렬 */
+}
+
+
+/* 드롭다운 호버 효과 */
+select:hover {
+    border-color: var(--nav-link-color);
+} 
+
+/* 캔버스 스타일 */
+.canvas {
+    padding: 20px;
+    text-align: center; /* 가운데 정렬 */
+    background-color: var(--background-color);
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 박스 그림자 효과 */
+    margin: 20px; /* 여백 추가 */
+}
+
+a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+}
+
+/* a:hover {
+    text-decoration: underline;
+} */
+
+/* Header Styles */
+header {
+    background-color: var(--header-background);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--background-color);
+    border-top: 3px solid var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+nav a {
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Section Styles */
+section {
+    padding: 30px 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-background);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.tooltip {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    /* border: 1px solid; */
+    padding: 5px;
+    font-size: 1em;
+  }
+
+/* SVG Styles */
+svg {
+    width: 100%; /* Adjust the width as needed */
+    height: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    /* display: block;
+     */
+    display:flex;
+    /* border: 1px solid red; */
+    overflow: visible; /* Add this to allow overflowing content to be visible */
+}
+
+
+/* Existing CSS ... */
+
+/* Scatterplot Point Styles */
+.scatterplot-point {
+    fill: var(--accent-color); /* Default color for points */
+    /* transition: fill 0.1s, r 0.1s; Smooth transition for color and radius */
+}
+
+/* Sidebar styling */
+/* Sidebar styling */
+.sidebar {
+    height: auto; /* Adjust height as it's now horizontal */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #3A4D39; /* Sidebar color */
+    overflow-x: auto; /* Enable horizontal scroll if needed */
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Align children in a row */
+    align-items: center; /* Align items vertically in the center */
+    padding-top: 0; /* Adjust padding if necessary */
+    white-space: nowrap; /* Prevent wrapping of items */
+}
+
+  
+/* Style the sidebar links */
+.sidebar a {
+padding: 20px 8px 6px 16px;
+text-decoration: none;
+font-size: 20px;
+color: #f1f1f1;
+display: block;
+}
+  
+/* When you mouse over the links, change color */
+.sidebar a:hover {
+color: #ccc;
+}
+
+/* Style for the highlighted circles (mouseover event) */
+.dot:hover {
+    fill: red; /* Bright color on hover */
+    stroke:rgb(105, 23, 23);
+    stroke-width: 4px;
+}
+
+
+/* 라벨 스타일 */
+label {
+    font-family: var(--main-font);
+    padding: 5px;
+    margin: 5px 0; /* 상하 여백 추가 */
+    border: None;
+    border-radius: 5px; /* 둥근 모서리 */
+    background-color: None;
+    color: var(--text-color);
+    width: 200px; /* 너비 설정 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    margin-left: auto;
+    margin-right: auto; /* 중앙 정렬 */
+}
+
+
+#yearSlider {
+    width: 500px; /* 슬라이더의 폭을 설정 */
+    height: 50px; /* 슬라이더의 높이를 설정 */
+    margin: 20px auto; /* 슬라이더를 가운데 정렬하고 상하 여백을 추가 */
+    position: absolute; /* 상대적 위치 설정 */
+}
+
+#yearSlider svg {
+    width: 100%; /* SVG의 폭을 div 컨테이너에 맞춤 */
+    height: auto; /* SVG의 높이를 자동으로 조정 */
+    position:absolute; /* SVG를 절대적 위치로 설정 */
+    left: 100px;
+    bottom: 170px; /* SVG를 상단에 위치시킴 */
+    align-items: center;
+
+}
+
+
+#gridContainer button {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1; /* Makes the buttons square */
+    border: none; /* Remove button borders */
+    padding: 0; /* Remove padding inside buttons */
+    margin: 0; /* Remove margins */
+}
+#gridContainer button:hover {
+    font-size: 100%; /* 글씨 크기를 100%로 증가 */
+    font-weight: bold;
+    color: rgb(228, 175, 28); /* 글씨 색상을 파란색으로 변경 */
+}
+
+
+#graph-name {
+    font-size: 30px;
+    position: relative;
+    top: 0;
+    left: 180px;
+    /* text-align: center; */
+}
+
+#yearValue {
+    top: 40px;
+    left:180px;
+    font-size: 20px;
+    position: relative;
+}
+
+/* 라벨 컨테이너 스타일 */
+.label-container {
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    flex-wrap: wrap; /* 필요시 라벨을 다음 줄로 감싸기 */
+}
+
+#gridContainer {
+    display: grid;
+    text-align: center;
+    position: absolute;
+    top: 250px;
+    right: 100px;
+    grid-template-columns: repeat(30, 1fr); /* 30열, 각 열은 사용 가능한 공간의 1/30 */
+    grid-template-rows: repeat(20, 1fr); /* 20행, 각 행은 사용 가능한 공간의 1/20 */
+    gap: 0px;
+    width: 40%;
+    /* width: 40%; 컨테이너의 전체 너비 */
+}
+
+/* 그래프 컨테이너 */
+.graph-container {
+    flex: 0.6; /* 유연한 크기 조정 */
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* 컨텐츠 컨테이너 (그래프 및 그리드) */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+}

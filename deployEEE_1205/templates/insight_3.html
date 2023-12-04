@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/eee.css">
+  <title>EEE for Sustainable Development</title>
+</head>
+<body>
+  <h1>기후 악당은 누구인가?</h1>
+  <h2>기후위기에 기여도에 비해 노력을 하지 않는 나라는?</h2>
+  <!-- 나머지 컨텐츠 -->
+  <div class="sidebar">
+    <a href="eee.html">🏚프로젝트 소개</a>
+      <a href="insight_1.html">🎭첫 번째, 불평등</a>
+      <a href="insight_2.html">💸두 번째, 지니계수와 지속가능지수</a>
+      <a href="insight_3.html">👿세 번째, 기후악당</a>
+  </div>
+  <div class="main-container">
+
+      <!-- 라벨 컨테이너 -->  
+      <div class="label-container">
+        <label for="index1">goal index(가로축)</label>
+        <select id="index1"></select>
+
+        <label for="index2">goal index(세로축)</label>
+        <select id="index2"></select>
+      </div>
+
+      <div class="content-container">
+        <!-- 그래프 컨테이너 -->
+        <div class="graph-container">
+          <p id="yearValue">연도를 조절해보세요.</p>
+          <p id="graph-name">지표의 관계</p>
+          <svg width="400" height="300"></svg>
+          <div id="yearSlider"></div>
+        </div>
+
+
+        <!-- 버튼 컨테이너 -->
+        <div id="gridContainer">
+        </div>
+      <!-- 슬라이더 관련 스크립트 파일 추가 -->
+        <!-- 연도 슬라이더 추가 -->
+
+
+  <!-- 스크립트 로드 -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
+  <script src="/static/js/insight_3.js" type="module"></script>
+  <script src="/static/js/slider.js"></script>
+  <script src="/static/js/map.js"></script>
+</body>
+</html>
+
