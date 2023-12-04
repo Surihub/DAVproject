@@ -117,7 +117,8 @@ d3.csv("/static/data/mergedata_fin.csv").then(data => {
       .join("path")
       .attr("d", line)
       .attr("fill", "none")
-      .attr("stroke",  "blue")
+      .attr("stroke",  "green")
+      .attr("stroke-width", 1.5);
 
 
     // 선 그래프 그리기
@@ -126,15 +127,17 @@ d3.csv("/static/data/mergedata_fin.csv").then(data => {
       .join("path")
       .attr("d", line)
       .attr("fill", "none")
-      .attr("stroke",  "orange")
-
+      .attr("stroke",  "blue")
+      .attr("stroke-width", 1.5);
+    
     // 선 그래프 그리기
     svg.append("path")
       .data([newdata3])
       .join("path")
       .attr("d", line)
       .attr("fill", "none")
-      .attr("stroke",  "green")
+      .attr("stroke",  "orange")
+      .attr("stroke-width", 1.5);
 
     // 선 그래프 그리기
     svg.append("path")
@@ -143,7 +146,7 @@ d3.csv("/static/data/mergedata_fin.csv").then(data => {
       .attr("d", line)
       .attr("fill", "none")
       .attr("stroke",  "red")
-      .attr("stroke-width", 2.5);
+      .attr("stroke-width", 4);
     
     svg.selectAll("circle")
       .data(newdata4)
