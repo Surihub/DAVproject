@@ -1,0 +1,167 @@
+,index,ISO2,nrow,ncol,country,ISO3,regions
+0,0,AF,9,23,Afghanistan,AFG,E. Europe & C. Asia
+1,23,AL,9,17,Albania,ALB,E. Europe & C. Asia
+2,46,DZ,12,14,Algeria,DZA,MENA
+3,69,AO,18,14,Angola,AGO,Sub-Saharan Africa
+4,92,AR,21,7,Argentina,ARG,LAC
+5,115,AM,7,21,Armenia,ARM,E. Europe & C. Asia
+6,138,AU,20,25,Australia,AUS,OECD
+7,161,AT,7,16,Austria,AUT,OECD
+8,184,AZ,8,22,Azerbaijan,AZE,E. Europe & C. Asia
+9,207,BS,10,6,Bahamas (the),BHS,LAC
+10,230,BH,10,21,Bahrain,BHR,MENA
+11,253,BD,9,24,Bangladesh,BGD,East & South Asia
+12,276,BB,13,9,Barbados,BRB,LAC
+13,299,BY,5,18,Belarus,BLR,E. Europe & C. Asia
+14,322,BE,6,14,Belgium,BEL,OECD
+15,345,BZ,11,3,Belize,BLZ,LAC
+16,368,BJ,15,16,Benin,BEN,Sub-Saharan Africa
+17,391,BT,8,25,Bhutan,BTN,East & South Asia
+18,414,BO,18,7,Bolivia (Plurinational State of),BOL,LAC
+19,437,BA,8,16,Bosnia and Herzegovina,BIH,E. Europe & C. Asia
+20,460,BW,19,16,Botswana,BWA,Sub-Saharan Africa
+21,483,BR,18,9,Brazil,BRA,LAC
+22,506,BN,13,26,Brunei Darussalam,BRN,East & South Asia
+23,529,BG,8,18,Bulgaria,BGR,E. Europe & C. Asia
+24,552,BF,14,14,Burkina Faso,BFA,Sub-Saharan Africa
+25,575,BI,17,16,Burundi,BDI,Sub-Saharan Africa
+26,598,CV,16,11,Cabo Verde,CPV,Sub-Saharan Africa
+27,621,KH,11,26,Cambodia,KHM,East & South Asia
+28,644,CM,16,15,Cameroon,CMR,Sub-Saharan Africa
+29,667,CA,8,2,Canada,CAN,OECD
+30,690,CF,15,17,Central African Republic (the),CAF,Sub-Saharan Africa
+31,713,TD,14,15,Chad,TCD,Sub-Saharan Africa
+32,736,CL,20,7,Chile,CHL,OECD
+33,759,CN,7,25,China,CHN,East & South Asia
+34,782,CO,16,6,Colombia,COL,OECD
+35,805,KM,19,19,Comoros (the),COM,Sub-Saharan Africa
+36,828,CD,16,16,Congo (the Democratic Republic of the),COD,Sub-Saharan Africa
+37,851,CG,17,15,Congo (the),COG,Sub-Saharan Africa
+38,874,CR,13,4,Costa Rica,CRI,OECD
+39,897,CI,16,13,Côte d'Ivoire,CIV,Sub-Saharan Africa
+40,920,HR,8,15,Croatia,HRV,E. Europe & C. Asia
+41,943,CU,10,5,Cuba,CUB,LAC
+42,966,CY,11,18,Cyprus,CYP,E. Europe & C. Asia
+43,989,CZ,6,16,Czechia,CZE,OECD
+44,1012,DK,4,15,Denmark,DNK,OECD
+45,1035,DJ,14,18,Djibouti,DJI,Sub-Saharan Africa
+46,1058,DO,11,7,Dominican Republic (the),DOM,LAC
+47,1081,EC,17,6,Ecuador,ECU,LAC
+48,1104,EG,12,17,Egypt,EGY,MENA
+49,1127,SV,12,2,El Salvador,SLV,LAC
+50,1150,EE,3,18,Estonia,EST,OECD
+51,1173,SZ,20,17,Eswatini,SWZ,Sub-Saharan Africa
+52,1196,ET,15,18,Ethiopia,ETH,Sub-Saharan Africa
+53,1219,FJ,20,28,Fiji,FJI,Oceania
+54,1242,FI,2,18,Finland,FIN,OECD
+55,1265,FR,6,13,France,FRA,OECD
+56,1288,GA,18,15,Gabon,GAB,Sub-Saharan Africa
+57,1311,GM,13,13,Gambia (the),GMB,Sub-Saharan Africa
+58,1334,GE,7,22,Georgia,GEO,E. Europe & C. Asia
+59,1357,DE,5,15,Germany,DEU,OECD
+60,1380,GH,15,14,Ghana,GHA,Sub-Saharan Africa
+61,1403,GR,10,17,Greece,GRC,OECD
+62,1426,GT,11,2,Guatemala,GTM,LAC
+63,1449,GN,15,12,Guinea,GIN,Sub-Saharan Africa
+64,1472,GY,17,7,Guyana,GUY,LAC
+65,1495,HT,11,6,Haiti,HTI,LAC
+66,1518,HN,12,3,Honduras,HND,LAC
+67,1541,HU,7,17,Hungary,HUN,OECD
+68,1564,IS,4,9,Iceland,ISL,OECD
+69,1587,IN,10,23,India,IND,East & South Asia
+70,1610,ID,14,26,Indonesia,IDN,East & South Asia
+71,1633,IR,9,21,Iran (Islamic Republic of),IRN,MENA
+72,1656,IQ,8,21,Iraq,IRQ,MENA
+73,1679,IE,5,11,Ireland,IRL,OECD
+74,1702,IL,11,19,Israel,ISR,OECD
+75,1725,IT,8,14,Italy,ITA,OECD
+76,1748,JM,11,4,Jamaica,JAM,LAC
+77,1771,JP,7,28,Japan,JPN,OECD
+78,1794,JO,9,19,Jordan,JOR,MENA
+79,1817,KZ,6,25,Kazakhstan,KAZ,E. Europe & C. Asia
+80,1840,KE,16,18,Kenya,KEN,Sub-Saharan Africa
+81,1863,KR,8,26,Korea (the Republic of),KOR,OECD
+82,1886,KW,9,20,Kuwait,KWT,MENA
+83,1909,KG,7,24,Kyrgyzstan,KGZ,E. Europe & C. Asia
+84,1932,LA,10,26,Lao People's Democratic Republic (the),LAO,East & South Asia
+85,1955,LV,4,18,Latvia,LVA,OECD
+86,1978,LB,10,19,Lebanon,LBN,MENA
+87,2001,LS,20,18,Lesotho,LSO,Sub-Saharan Africa
+88,2024,LR,15,13,Liberia,LBR,Sub-Saharan Africa
+89,2047,LT,5,17,Lithuania,LTU,OECD
+90,2070,LU,7,14,Luxembourg,LUX,OECD
+91,2093,MK,9,18,Republic of North Macedonia,MKD,E. Europe & C. Asia
+92,2116,MG,20,20,Madagascar,MDG,Sub-Saharan Africa
+93,2139,MW,18,16,Malawi,MWI,Sub-Saharan Africa
+94,2162,MY,12,25,Malaysia,MYS,East & South Asia
+95,2185,MV,14,22,Maldives,MDV,East & South Asia
+96,2208,ML,13,15,Mali,MLI,Sub-Saharan Africa
+97,2231,MT,9,13,Malta,MLT,E. Europe & C. Asia
+98,2254,MR,13,12,Mauritania,MRT,Sub-Saharan Africa
+99,2277,MU,21,20,Mauritius,MUS,Sub-Saharan Africa
+100,2300,MX,10,2,Mexico,MEX,OECD
+101,2323,MD,6,19,Moldova (the Republic of),MDA,E. Europe & C. Asia
+102,2346,MN,6,26,Mongolia,MNG,East & South Asia
+103,2369,ME,9,16,Montenegro,MNE,E. Europe & C. Asia
+104,2392,MA,12,13,Morocco,MAR,MENA
+105,2415,MZ,18,17,Mozambique,MOZ,Sub-Saharan Africa
+106,2438,MM,9,25,Myanmar,MMR,East & South Asia
+107,2461,,20,16,Namibia,NAM,Sub-Saharan Africa
+108,2484,NP,10,24,Nepal,NPL,East & South Asia
+109,2507,NL,5,14,Netherlands (the),NLD,OECD
+110,2530,NZ,22,27,New Zealand,NZL,OECD
+111,2553,NI,13,3,Nicaragua,NIC,LAC
+112,2576,NE,13,16,Niger (the),NER,Sub-Saharan Africa
+113,2599,NG,16,14,Nigeria,NGA,Sub-Saharan Africa
+114,2622,NO,2,16,Norway,NOR,OECD
+115,2645,OM,12,21,Oman,OMN,MENA
+116,2668,PK,9,22,Pakistan,PAK,East & South Asia
+117,2691,PA,15,5,Panama,PAN,LAC
+118,2714,PG,18,26,Papua New Guinea,PNG,Oceania
+119,2737,PY,19,7,Paraguay,PRY,LAC
+120,2760,PE,18,6,Peru,PER,LAC
+121,2783,PH,12,27,Philippines (the),PHL,East & South Asia
+122,2806,PL,5,16,Poland,POL,OECD
+123,2829,PT,7,11,Portugal,PRT,OECD
+124,2852,QA,11,20,Qatar,QAT,MENA
+125,2875,RO,7,18,Romania,ROU,E. Europe & C. Asia
+126,2898,RU,5,22,Russian Federation (the),RUS,E. Europe & C. Asia
+127,2921,RW,17,17,Rwanda,RWA,Sub-Saharan Africa
+128,2944,ST,17,12,Sao Tome and Principe,STP,Sub-Saharan Africa
+129,2967,SA,10,20,Saudi Arabia,SAU,MENA
+130,2990,SN,13,14,Senegal,SEN,Sub-Saharan Africa
+131,3013,RS,8,17,Serbia,SRB,E. Europe & C. Asia
+132,3036,SL,14,13,Sierra Leone,SLE,Sub-Saharan Africa
+133,3059,SG,14,25,Singapore,SGP,East & South Asia
+134,3082,SK,6,17,Slovakia,SVK,OECD
+135,3105,SI,7,15,Slovenia,SVN,OECD
+136,3128,SO,15,19,Somalia,SOM,Sub-Saharan Africa
+137,3151,ZA,21,17,South Africa,ZAF,Sub-Saharan Africa
+138,3174,SS,14,16,South Sudan,SSD,Sub-Saharan Africa
+139,3197,ES,7,12,Spain,ESP,OECD
+140,3220,LK,12,23,Sri Lanka,LKA,East & South Asia
+141,3243,SD,13,17,Sudan (the),SDN,Sub-Saharan Africa
+142,3266,SR,18,8,Suriname,SUR,LAC
+143,3289,SE,2,17,Sweden,SWE,OECD
+144,3312,CH,6,15,Switzerland,CHE,OECD
+145,3335,SY,8,20,Syrian Arab Republic,SYR,MENA
+146,3358,TJ,8,24,Tajikistan,TJK,E. Europe & C. Asia
+147,3381,TZ,17,18,"Tanzania, United Republic of",TZA,Sub-Saharan Africa
+148,3404,TH,11,25,Thailand,THA,East & South Asia
+149,3427,TG,15,15,Togo,TGO,Sub-Saharan Africa
+150,3450,TT,16,8,Trinidad and Tobago,TTO,LAC
+151,3473,TN,12,15,Tunisia,TUN,MENA
+152,3496,TR,8,19,Turkey,TUR,OECD
+153,3519,TM,8,23,Turkmenistan,TKM,E. Europe & C. Asia
+154,3542,UG,16,17,Uganda,UGA,Sub-Saharan Africa
+155,3565,UA,6,18,Ukraine,UKR,E. Europe & C. Asia
+156,3588,AE,11,21,United Arab Emirates (the),ARE,MENA
+157,3611,GB,5,12,United Kingdom of Great Britain and Northern Ireland (the),GBR,OECD
+158,3634,US,9,2,United States of America (the),USA,OECD
+159,3657,UY,19,8,Uruguay,URY,LAC
+160,3680,UZ,7,23,Uzbekistan,UZB,E. Europe & C. Asia
+161,3703,VE,16,7,Venezuela (Bolivarian Republic of),VEN,LAC
+162,3726,VN,10,27,Viet Nam,VNM,East & South Asia
+163,3749,YE,12,20,Yemen,YEM,MENA
+164,3772,ZM,19,15,Zambia,ZMB,Sub-Saharan Africa
+165,3795,ZW,19,17,Zimbabwe,ZWE,Sub-Saharan Africa

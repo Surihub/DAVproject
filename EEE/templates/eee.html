@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/eee.css">
+  <title>EEE for Sustainable Development</title>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="{{ url_for('eee') }}">🏚프로젝트 소개</a>
+      <a href="{{ url_for('inequality') }}">🎭첫 번째, 불평등</a>
+      <a href="{{ url_for('gini') }}">💸두 번째, 지니계수와 지속가능지수</a>
+      <a href="{{ url_for('villain') }}">👿세 번째, 기후악당</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Header with the project title and the image -->
+    <header>
+      <h1>지속가능발전 지표 데이터 시각화</h1>
+      <img src="https://cdn.imweb.me/thumbnail/20230207/8efc79c318acc.jpg" alt="EEE for Sustainable Development" style="width:50%">
+    </header>
+    <div class="data-reference">
+      <p>Data Reference</p>
+      <ul>
+        <li><a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank">The World Bank - Gini Index</a></li>
+        <li><a href="https://www.imf.org/external/pubs/ft/weo/2022/01/weodata/groups.htm" target="_blank">Country Level (Developed, Developing, Underdeveloped): IMF</a></li>
+        <li><a href="https://www.un.org/development/desa/dpad/wp-content/uploads/sites/45/publication/ldc_list.pdf" target="_blank">UN</a></li>
+        <li><a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank">Penn World Table - Population, GDP</a></li>
+        <li><a href="https://www.climatechangenews.com/2016/11/04/south_korea_climate_villains/" target="_blank">2016 Climate villains</a></li>
+        <li><a href="https://uis.unesco.org/sites/default/files/documents/sdg4-data-digest-2019-en_0.pdf" target="_blank">SDG 4 Data Digest p.13</a></li>
+      </ul>
+    </div>
+    
+    <footer>
+      <p>© 2023-2 DAV project by EEE</p>
+    </footer>
+  </div>
+</body>
+</html>

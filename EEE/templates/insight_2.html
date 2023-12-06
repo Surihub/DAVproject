@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
+  
+  <link rel="stylesheet" href="/static/css/insight_2.css">
+  <title>EEE for Sustainable Development</title>
+</head>
+<body>
+  <h1>지니계수가 SDGs 지표를 잘 설명할 수 있을까?</h1>
+  <h2>연도에 따라 지니계수가 지속가능발전목표 지수를 어떻게 설명하는지 살펴보세요. </h2>
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+    <a href="{{ url_for('eee') }}">🏚프로젝트 소개</a>
+      <a href="{{ url_for('inequality') }}">🎭첫 번째, 불평등</a>
+      <a href="{{ url_for('gini') }}">💸두 번째, 지니계수와 지속가능지수</a>
+      <a href="{{ url_for('villain') }}">👿세 번째, 기후악당</a>    <!-- <a href="eee.html">🏚프로젝트 소개</a>
+      <a href="insight_1.html">🎭첫 번째, 불평등</a>
+      <a href="insight_2.html">💸두 번째, 지니계수와 지속가능지수</a>
+      <a href="insight_3.html">👿세 번째, 기후악당</a> -->
+  </div>
+
+  <div id="time-slider"></div>
+
+  <div class="canvas"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script type="module" src="/static/js/insight_2.js"></script>
+  
+
+
+</body>
+</html>

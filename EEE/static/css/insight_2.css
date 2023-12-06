@@ -1,0 +1,150 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Noto+Sans+KR:wght@500&family=Song+Myung&display=swap');
+
+/* Root Variables */
+:root {
+    --main-font: 'Song Myung', sans-serif;
+    --secondary-font: 'Noto Sans KR', serif;
+    --accent-color: #4F6F52; /* Green color for sustainability */
+    --background-color: #f5f5f5; /* Light gray background */
+    --text-color: #333; /* Dark gray text for readability */
+    --nav-link-color: #3A4D39; /* Blue color for navigation links */
+    --header-background: #f5f5f5; /* Dark header background */
+    --footer-background: #424242; /* Dark footer background */
+}
+
+/* Global Styles */
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 80px;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 제목 스타일 */
+h1{
+    /* font-family: 'Black Han Sans', sans-serif; */
+    color: var(--accent-color);
+    text-align: center; /* 가운데 정렬 */
+    margin-top: 20px;
+    margin-bottom: 20px; /* 상하 여백 추가 */
+}
+/* 제목 스타일 */
+h2 {
+    /* font-family: 'Black Han Sans', sans-serif; */
+    color: var(--accent-color);
+    text-align: center; /* 가운데 정렬 */
+    margin-top: 20px;
+    margin-bottom: 20px; /* 상하 여백 추가 */
+}
+
+.legend {
+    font-size: 12px;
+}
+
+.year-title {
+    font-size: 20px;
+}
+
+.x-axis-label{
+    font-size: 15px;
+}
+.y-axis-label{
+    font-size: 15px;
+}
+
+
+/* Sidebar styling */
+/* Sidebar styling */
+.sidebar {
+    height: auto; /* Adjust height as it's now horizontal */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #3A4D39; /* Sidebar color */
+    overflow-x: auto; /* Enable horizontal scroll if needed */
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Align children in a row */
+    align-items: center; /* Align items vertically in the center */
+    padding-top: 0; /* Adjust padding if necessary */
+    white-space: nowrap; /* Prevent wrapping of items */
+}
+
+  
+/* Style the sidebar links */
+.sidebar a {
+padding: 20px 8px 6px 16px;
+text-decoration: none;
+font-size: 20px;
+color: #f1f1f1;
+display: block;
+}
+  
+/* When you mouse over the links, change color */
+.sidebar a:hover {
+color: #ccc;
+}
+
+/* Canvas Style */
+.canvas {
+    padding: 30px;
+    text-align: center; /* Center align */
+    background-color: var(--background-color);
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0); /* Box shadow effect */
+    margin: 20px; /* Add margin */
+    max-width: 600px; /* Maximum width */
+    margin-left: auto;
+    margin-right: auto; /* Centering the canvas */
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: absolute;
+    width: 180px;
+    height: 90px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.7em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tooltipLine {
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.7em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* SVG Styles */
+svg {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    overflow: visible; /* Allow overflowing content to be visible */
+}
+
+/* Time Slider Style */
+#time-slider {
+    width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+
+}
+
+/* Adjusting for smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 150px; /* Adjust sidebar width for smaller screens */
+    }
+}

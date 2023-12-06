@@ -1,0 +1,70 @@
+/* Style for the scatterplot SVG */
+svg {
+    border: 1px solid #ccc; /* Light grey border */
+}
+
+.sidebar {
+    display: none;
+}
+
+/* Style for the dropdown menus */
+select {
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Style for the dropdown labels */
+label {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+/* Style for the tooltip */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+    color: white;
+    opacity: 0; /* Initially invisible */
+    pointer-events: none; /* Let mouse events pass through */
+}
+
+/* Style for the circles in the scatterplot */
+.dot {
+    fill: steelblue;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+/* Style for the highlighted circles (mouseover event) */
+.dot:hover {
+    fill: #ff5722; /* Bright color on hover */
+    stroke: black;
+    stroke-width: 2px;
+}
+
+/* Style for axis labels */
+.axis-label {
+    font-size: 14px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+/* Style for axis lines and ticks */
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+index1{
+    font-size:20px;
+    text-align: center;
+}
